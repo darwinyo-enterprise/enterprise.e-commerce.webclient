@@ -1,0 +1,65 @@
+<div class="navbar-button-container" *ngIf="!(logged$|async)">
+  <button mat-button class="navbar-button-container__button" (click)="onRegisterBtn_Clicked()">
+    <a>Register</a>
+  </button>
+  <button mat-button class="navbar-button-container__button" (click)="onLoginBtn_Clicked()">
+    <a>Login</a>
+  </button>
+</div>
+<div *ngIf="(logged$|async)">
+  <!-- Notification Button In Navbar... -->
+  <span>
+    <button mat-icon-button [matMenuTriggerFor]="notificationsMenu" [matTooltip]="'Notification'">
+      <td-notification-count [notifications]="3">
+        <mat-icon>notifications</mat-icon>
+      </td-notification-count>
+    </button>
+    <mat-menu #notificationsMenu="matMenu" [overlapTrigger]="false">
+      <td-menu>
+        <div td-menu-header class="md-subhead">Notifications</div>
+        <mat-nav-list dense>
+
+          <!-- Notification -->
+          <shared--notification [notification]="notification" (navigateEvent)="onNavigateEvent($event)"></shared--notification>
+
+        </mat-nav-list>
+        <button mat-button color="primary" td-menu-footer>
+          See All Notifications
+        </button>
+      </td-menu>
+    </mat-menu>
+  </span>
+
+  <!-- Message Menu -->
+  <span>
+    <button mat-icon-button [matMenuTriggerFor]="messageMenu" [matTooltip]="'Messages'">
+      <td-notification-count color="primary" [notifications]="false">
+        <mat-icon>messages</mat-icon>
+      </td-notification-count>
+    </button>
+    <mat-menu #messageMenu="matMenu" [overlapTrigger]="false">
+      <td-menu>
+        <mat-nav-list dense>
+          <shared--message-menu [menuModel]="messageMenuModel" (navigateEvent)="onNavigateEvent($event)"></shared--message-menu>
+        </mat-nav-list>
+      </td-menu>
+    </mat-menu>
+  </span>
+
+  <!-- User Menu -->
+  <span>
+    <button mat-icon-button [matMenuTriggerFor]="userMenu"  [matTooltip]="'Account'">
+      <td-notification-count [notifications]="false">
+        <mat-icon>person</mat-icon>
+      </td-notification-count>
+    </button>
+    <mat-menu #userMenu="matMenu" [overlapTrigger]="false">
+      <td-menu>
+        <mat-nav-list dense>
+          <shared--user-menu [menuModel]="userMenuModel" (navigateEvent)="onNavigateEvent($event)">
+          </shared--user-menu>
+        </mat-nav-list>
+      </td-menu>
+    </mat-menu>
+  </span>
+</div>

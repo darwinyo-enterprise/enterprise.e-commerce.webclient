@@ -1,0 +1,27 @@
+NOTE : Once Finish, Delete The Task...
+
+TO-DO :
+- Auth Module :
+    - Page :
+        - auth-callback :
+            - Need To Implement Interactive UI.
+            - Test Case Need To Activated and Implemented.
+        - pop-up :
+            - Need To Implement Interactive UI.
+            - Test Case Need To Activated and Implemented.
+        - silent :
+            - Need To Implement Interactive UI.
+            - Test Case Need To Activated and Implemented.
+        - not-authorized :
+            - Need To Implement Interactive UI.
+            - Test Case Need To Activated and Implemented.
+- Core Module :
+    -Layout :
+        - Manage Core Layout.
+- Admin Module :
+    -Layout :
+        - Manage Admin Layout.
+    -Container :
+        - Admin-Menu Container :
+            - Make Service To Fetch Data from DB.
+            - Menu Registered In DB.

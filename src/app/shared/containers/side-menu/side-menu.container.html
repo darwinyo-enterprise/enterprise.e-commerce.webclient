@@ -1,0 +1,21 @@
+<mat-nav-list>
+  <!-- Basic Menu -->
+  <ng-template ngFor let-menu [ngForOf]="routes">
+    <a routerLink="{{menu.menuHref}}" routerLinkActive="active" mat-list-item *ngIf="filterPermission(menu.permittedRoles)">
+      <mat-icon matListIcon>{{menu.menuIcon}}</mat-icon>
+      <span>{{menu.menuTitle}}</span>
+    </a>
+  </ng-template>
+
+  <!-- Nested Menu By Category. -->
+  <!-- This Used For Large Number Of Menu, and Grouped By Category -->
+  <td-expansion-panel-group>
+    <ng-template ngFor let-category [ngForOf]="categoriesMenu">
+      <td-expansion-panel label="{{category.menuCategory}}">
+        <a *ngFor="let item of category.menuChild" mat-list-item>
+          {{item.menuTitle}}
+        </a>
+      </td-expansion-panel>
+    </ng-template>
+  </td-expansion-panel-group>
+</mat-nav-list>

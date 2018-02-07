@@ -1,0 +1,10 @@
+<!-- Start Nav menu -->
+<a mat-tab-link *ngFor="let menu of navMenu" [routerLink]="menu.menuHref" 
+routerLinkActive #rla="routerLinkActive" [active]="rla.isActive">
+  <span hide-xs>{{menu.menuTitle}}</span>
+  <span hide-gt-xs>
+    <mat-icon>{{menu.menuIcon}}</mat-icon>
+  </span>
+</a>
+
+<!-- End Nav menu -->

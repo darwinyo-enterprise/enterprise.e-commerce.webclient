@@ -1,0 +1,63 @@
+<td-layout>
+  <!-- Sidebar Drawer -->
+  <td-navigation-drawer flex [sidenavTitle]="appTitle" logo="assets:covalent" name="{{userName}}" email="{{userEmail}}">
+    <!-- SideMenu Container -->
+    <shared--side-menu></shared--side-menu>
+
+    <div td-navigation-drawer-menu>
+
+      <!-- Account Menu Container -->
+      <shared--account-menu></shared--account-menu>
+    </div>
+  </td-navigation-drawer>
+  <!-- End Sidebar Drawer -->
+
+  <td-layout-nav color="none" logo="assets:covalent" navigationRoute="/">
+
+    <!-- Button Menu To Sidebar -->
+    <button mat-icon-button td-menu-button tdLayoutToggle>
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <!-- First Navbar -->
+    <div td-toolbar-content layout="row" layout-align="start center" flex>
+
+      <!-- Title In Navbar -->
+      <span hide-xs class="tc-green-500 mat-subhead">{{appTitle}}</span>
+
+      <!-- Separator Flex -->
+      <span flex *ngIf="!searchBox.searchVisible"></span>
+
+      <!-- Search box in navbar -->
+      <td-search-box hide-xs flex #searchBox [ngClass]="{'search-bar push-left push-right mat-whiteframe-z1 bgc-white tc-black': searchBox.searchVisible }"
+        placeholder="search"></td-search-box>
+
+      <!-- navbar buttons container -->
+      <shared--navbar-buttons></shared--navbar-buttons>
+    </div>
+    <!-- End First Navbar -->
+
+    <!-- Start Sub Navbar -->
+    <mat-toolbar class="pad-none second-navbar">
+      <nav mat-stretch-tabs mat-tab-nav-bar class="pull-bottom-xl pull-top-md text-upper" flex>
+
+        <!-- Sub-Menu Container -->
+        <core--sub-menu></core--sub-menu>
+      </nav>
+    </mat-toolbar>
+    <!-- End Sub Navbar -->
+
+    <!-- router outlet goes here -->
+    <router-outlet></router-outlet>
+    <!-- end content -->
+
+    <!-- Footer Section -->
+    <core--footer></core--footer>
+    <!-- End Footer Section -->
+
+    <!-- Fab Button -->
+    <a mat-fab color="accent" matTooltip="Contact Us" matTooltipPosition="above" class="mat-fab-position-bottom-right fixed">
+      <mat-icon>send</mat-icon>
+    </a>
+  </td-layout-nav>
+</td-layout>

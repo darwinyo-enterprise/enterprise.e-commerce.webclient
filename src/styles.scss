@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+// My scss
+
+@import './../../assets-repository/base/scss/main';
+
+ 
+ 
+ // Adjust your logo position
+.mat-icon {
+    &.mat-icon-logo {
+      position: relative;
+      top: -4px;
+    }
+}
+
+

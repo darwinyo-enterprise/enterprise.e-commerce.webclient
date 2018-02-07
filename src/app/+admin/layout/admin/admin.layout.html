@@ -1,0 +1,132 @@
+<td-layout>
+
+  <!-- Sidebar Drawer -->
+  <td-navigation-drawer flex [sidenavTitle]="appTitle" logo="assets:covalent" name="{{userName}}" email="{{userEmail}}">
+
+    <!-- SideMenu Container -->
+    <shared--side-menu></shared--side-menu>
+
+    <div td-navigation-drawer-menu>
+
+      <!-- Account Menu Container -->
+      <shared--account-menu></shared--account-menu>
+    </div>
+  </td-navigation-drawer>
+  <!-- End Sidebar Drawer -->
+
+  <!-- Start Navbar Section -->
+  <td-layout-nav color="none" class="admin-navbar" logo="assets:covalent" navigationRoute="/">
+
+    <!-- Button Menu To Sidebar -->
+    <button mat-icon-button td-menu-button tdLayoutToggle>
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <!-- Top Toolbar -->
+    <div td-toolbar-content layout="row" layout-align="start center" flex>
+
+      <!-- Title In Navbar -->
+      <span hide-xs class="tc-green-500 mat-subhead">{{appTitle}}</span>
+
+      <!-- Separator Flex -->
+      <span flex *ngIf="!searchBox.searchVisible"></span>
+
+      <!-- Search box in navbar -->
+      <td-search-box hide-xs flex #searchBox [ngClass]="{'search-bar push-left push-right mat-whiteframe-z1 bgc-white tc-black': searchBox.searchVisible }"
+        placeholder="search"></td-search-box>
+
+      <!-- navbar buttons container -->
+      <shared--navbar-buttons></shared--navbar-buttons>
+
+    </div>
+    <!-- End Top Toolbar -->
+
+    <!-- Sidebar Layout -->
+    <td-layout-manage-list #manageList [opened]="media.registerQuery('gt-sm') | async" [mode]="(media.registerQuery('gt-sm') | async) ? 'side' :  'over'">
+
+      <!-- Content -->
+      <div td-sidenav-content layout="column" layout-fill>
+
+        <!-- Admin Menu Container -->
+        <admin--admin-menu></admin--admin-menu>
+
+      </div>
+      <!-- End Sidebar Layout -->
+
+      <mat-sidenav-container flex>
+
+        <!-- Right Layout -->
+        <mat-sidenav #sidenav align="end">
+
+          <!-- Info Container -->
+          <admin--info></admin--info>
+
+        </mat-sidenav>
+        <!-- End Right Layout -->
+
+        <!-- Content Layout -->
+        <td-layout-nav color="none">
+
+          <!-- Content Toolbar -->
+          <div td-toolbar-content flex layout="row" layout-align="start center">
+
+            <!-- Content Toogle Button -->
+            <button mat-icon-button tdLayoutManageListToggle>
+              <mat-icon>menu</mat-icon>
+            </button>
+
+            <!-- Title -->
+            <span hide-xs>Dashboard 1</span>
+
+            <!-- Flex Separator -->
+            <span flex></span>
+
+            <!-- Admin Navbar Buttons -->
+            <admin--admin-navbar-buttons></admin--admin-navbar-buttons>
+
+          </div>
+          <!-- End Toolbar -->
+
+          <!-- Content -->
+          <router-outlet></router-outlet>
+
+          <!-- End Content -->
+
+        </td-layout-nav>
+        <!-- End Content Layout -->
+
+      </mat-sidenav-container>
+
+    </td-layout-manage-list>
+
+  </td-layout-nav>
+
+</td-layout>
+
+<!-- Dialog -->
+<ng-template #dialogContent let-dialogRef="dialogRef">
+  <div layout="column" layout-fill>
+    <h2 mat-dialog-title>
+      Card Settings
+    </h2>
+    <mat-divider></mat-divider>
+    <mat-dialog-content flex>
+      <form class="pad">
+        <div layout="row" layout-margin>
+          <mat-form-field flex>
+            <input matInput placeholder="Card order" value="1" type="number">
+          </mat-form-field>
+          <mat-form-field flex>
+            <input matInput placeholder="Card width" value="100" type="number">
+          </mat-form-field>
+        </div>
+      </form>
+    </mat-dialog-content>
+    <mat-divider></mat-divider>
+    <mat-dialog-actions align="end">
+      <button type="button" mat-button class="text-upper" (click)="dialogRef.close()">Close</button>
+      <button type="button" mat-button color="accent" class="text-upper" (click)="dialogRef.close()">Save</button>
+    </mat-dialog-actions>
+  </div>
+</ng-template>
+<!-- End Dialog -->

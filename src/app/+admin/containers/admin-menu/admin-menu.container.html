@@ -1,0 +1,38 @@
+<!-- First Child Element -->
+<!-- Header -->
+<mat-toolbar>
+  <mat-icon class="push-left-xs">dashboard</mat-icon>
+  <span class="push-left-sm">Dashboards</span>
+</mat-toolbar>
+
+<!-- 2nd Child Element, Type : Html Element -->
+<!-- List Menu -->
+<mat-nav-list flex>
+
+  <!-- Child Element Of 2nd Child Element, Type : Html Element
+       Automaticly Goes To Anchor.
+       Ng Template Doesnt show in browser.
+  -->
+  <ng-template ngFor let-menu [ngForOf]="adminMenu">
+
+    <!-- Anchors nth child element of mat-nav-list -->
+    <a routerLink="{{menu.menuHref}}" routerLinkActive="active" mat-list-item>
+
+      <!-- 1st child element of anchor element -->
+      <mat-icon matListIcon>{{menu.menuIcon}}</mat-icon>
+      <!-- 2nd child element of anchor element -->
+      <span>{{menu.menuTitle}}</span>
+    </a>
+  </ng-template>
+   <!-- Nested Menu By Category. -->
+  <!-- This Used For Large Number Of Menu, and Grouped By Category -->
+  <td-expansion-panel-group>
+    <ng-template ngFor let-category [ngForOf]="categoriesMenu">
+      <td-expansion-panel label="{{category.menuCategory}}">
+        <a *ngFor="let item of category.menuChild" routerLink="{{item.menuHref}}" mat-list-item>
+          {{item.menuTitle}}
+        </a>
+      </td-expansion-panel>
+    </ng-template>
+  </td-expansion-panel-group>
+</mat-nav-list>

@@ -1,19 +1,37 @@
-import { IManufacturerListModel } from '../models/manufacturer-list.model';
 import { IManufacturerModel } from '../models/manufacturer.model';
 
-export const manufacturerMocks = <IManufacturerListModel>{
-    manufacturers: [
+export const manufacturerMocks: IManufacturerModel[] =
+    [
         <IManufacturerModel>{
-            manufacturerName: 'Samsung'
+            manufacturerName: 'Samsung',
+            addedDateTime: '2/8/2018',
+            addedBy: 'Darwin',
+            lastUpdated: null,
+            updatedBy: null,
+            id: '12'
         },
         <IManufacturerModel>{
-            manufacturerName: 'Sony'
+            manufacturerName: 'Sony',
+            addedDateTime: '2/7/2018',
+            addedBy: 'Darwin',
+            lastUpdated: '2/7/2018',
+            updatedBy: 'Darwin',
+            id: '12'
         },
         <IManufacturerModel>{
-            manufacturerName: 'Nvidia'
+            manufacturerName: 'Nvidia',
+            addedDateTime: '2/8/2018',
+            addedBy: 'Darwin',
+            lastUpdated: null,
+            updatedBy: null,
+            id: '12'
         },
         <IManufacturerModel>{
-            manufacturerName: 'AMD'
+            manufacturerName: 'AMD',
+            addedDateTime: '2/8/2018',
+            addedBy: 'Darwin',
+            lastUpdated: null,
+            updatedBy: null,
+            id: '12'
         }
-    ]
-};
+    ];

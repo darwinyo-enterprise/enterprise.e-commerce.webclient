@@ -20,6 +20,7 @@ import { HomePage } from './pages/home/home.page';
 import { CoreLayout } from './layout/core/core.layout';
 import { SharedModule } from '../shared/shared.module';
 import { AboutUsPage } from './pages/about-us/about-us.page';
+import { ManufacturerManagementModule } from '../e-commerce area/+manufacturer-management/manufacturer-management.module';
 
 @NgModule({
   imports: [
@@ -29,6 +30,7 @@ import { AboutUsPage } from './pages/about-us/about-us.page';
     // Put Other Module Above AuthModule...
     AuthModule,
     SharedModule,
+    ManufacturerManagementModule,
     CoreRouteModule,
 
     //#region ngrx

@@ -1,3 +1,40 @@
-<p>
-  list-manufacturer works!
-</p>
+<mat-card class="form-area--card">
+  <div class="form-area--card--title">
+    <h3>Manufacturer List</h3>
+  </div>
+  <div class="form-area--card--container">
+    <dx-data-grid id="gridContainer" [dataSource]="listManufacturer" [allowColumnResizing]="true" [allowColumnReordering]="true"
+      [columnHidingEnabled]="true">
+
+      <dxo-export [enabled]="true" fileName="Orders"></dxo-export>
+      <dxo-grouping [contextMenuEnabled]="true" expandMode="rowClick"></dxo-grouping>
+
+      <dxo-selection mode="single"></dxo-selection>
+      <dxo-filter-row [visible]="true"></dxo-filter-row>
+      <dxo-group-panel [visible]="true"></dxo-group-panel>
+      <dxo-state-storing [enabled]="true" type="localStorage" storageKey="storage"></dxo-state-storing>
+
+      <dxo-group-panel [visible]="true" emptyPanelText="Use the context menu of header columns to group data"></dxo-group-panel>
+
+      <dxo-pager [allowedPageSizes]="[5, 10, 15, 30]" [showInfo]="true" [showNavigationButtons]="true" [showPageSizeSelector]="true"
+        [visible]="true">
+      </dxo-pager>
+
+      <dxo-paging [pageSize]="8"></dxo-paging>
+
+      <dxo-column-chooser [enabled]="true" mode="select"></dxo-column-chooser>
+
+      <dxi-column dataField="manufacturerName" [allowGrouping]="false" [width]="130" caption="Manufacturer Name"></dxi-column>
+      <dxi-column dataField="addedDateTime" [width]="130" dataType="date"></dxi-column>
+      <dxi-column dataField="addedBy" [width]="130" caption="Added By"></dxi-column>
+      <dxi-column dataField="lastUpdated" [width]="130" dataType="date"></dxi-column>
+      <dxi-column dataField="updatedBy" [width]="130" caption="Updated By"></dxi-column>
+      <dxi-column dataField="id" [width]="130" cellTemplate="cellTemplate"></dxi-column>
+      <div *dxTemplate="let cell of 'cellTemplate'">
+        <button mat-button>Edit</button>
+        <button mat-button>Delete</button>
+      </div>
+    </dx-data-grid>
+
+  </div>
+</mat-card>

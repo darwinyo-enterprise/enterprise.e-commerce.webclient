@@ -52,7 +52,8 @@ import {
   DxGalleryModule,
   DxSelectBoxModule,
   DxTextAreaModule,
-  DxFormModule
+  DxFormModule,
+  DxDataGridModule
 } from 'devextreme-angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
@@ -111,6 +112,7 @@ import { RouterModule } from '@angular/router';
     DxSelectBoxModule,
     DxTextAreaModule,
     DxFormModule,
+    DxDataGridModule
     //#endregion
 
   ],
@@ -166,6 +168,7 @@ import { RouterModule } from '@angular/router';
     DxSelectBoxModule,
     DxTextAreaModule,
     DxFormModule,
+    DxDataGridModule
     //#endregion
 
   ]
